@@ -1,0 +1,17 @@
+#!/bin/sh
+
+previous_dir=$(pwd)
+# Check if ZK is already running
+
+zkpid=$(ps ax | grep -i 'org\.apache\.zookeeper\.server\.quorum\.QuorumPeerMain' | grep java | grep -v grep | awk '{print $1}')
+
+if [ "x$zkpid" = "x" ]; then
+  cd /home/raptor/deepak/dev/sw/zk
+  bin/zkServer.sh start
+fi
+
+# Start kafka
+cd /home/raptor/deepak/dev/sw/kafka
+bin/kafka-server-start.sh -daemon config/server.properties
+ps ax | grep -i 'kafka\.kafka' | grep java | grep -v grep | awk '{print $1" "$(NF-1)}'
+cd $previous_dir

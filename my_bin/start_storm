@@ -1,0 +1,19 @@
+#!/bin/sh
+
+previous_dir=$(pwd)
+# Check if ZK is already running
+
+zkpid=$(ps ax | grep -i 'org\.apache\.zookeeper\.server\.quorum\.QuorumPeerMain' | grep java | grep -v grep | awk '{print $1}')
+
+if [ "x$zkpid" = "x" ]; then
+  cd /home/raptor/deepak/dev/sw/zk
+  bin/zkServer.sh start
+fi
+
+# Start storm
+cd /home/raptor/deepak/dev/sw/storm
+nohup bin/storm nimbus > /tmp/nimbus.out 2>&1 < /dev/null &
+nohup bin/storm supervisor > /tmp/supervisor.out 2>&1 < /dev/null &
+nohup bin/storm ui > /tmp/stormui.out 2>&1 < /dev/null &
+showall
+cd $previous_dir

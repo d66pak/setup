@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/home/raptor/deepak/dev/sw/kafka/bin/kafka-server-stop.sh
+showall

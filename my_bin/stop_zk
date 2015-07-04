@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/home/raptor/deepak/dev/sw/zk/bin/zkServer.sh stop

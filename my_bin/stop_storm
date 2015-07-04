@@ -1,0 +1,6 @@
+#!/bin/sh
+
+ps ax | grep -i 'backtype\.storm\.daemon\.nimbus' | grep java | grep -v grep | awk '{print $1}' | xargs kill -SIGTERM
+ps ax | grep -i 'backtype\.storm\.daemon\.supervisor' | grep java | grep -v grep | awk '{print $1}' | xargs kill -SIGTERM
+ps ax | grep -i 'backtype\.storm\.ui\.core' | grep java | grep -v grep | awk '{print $1}' | xargs kill -SIGTERM
+showall
