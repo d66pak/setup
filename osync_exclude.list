@@ -1,0 +1,8 @@
+.dbus/
+.osync_workdir/
+osync.*
+.DS_Store
+Thumbs.db
+System Volume Information
+$Recycle.Bin
+.cache/google-chrome/Default/
