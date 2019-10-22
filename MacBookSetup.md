@@ -47,4 +47,6 @@
   * `brew cask install sourcetree`
 * Sublime text
   * `brew cask install sublime-text`
+* Clipy (Clipboard manager)
+  * `brew cask install clipy`
 
